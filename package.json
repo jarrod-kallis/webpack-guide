@@ -7,8 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server",
-    "build":
-      "rimraf dist && webpack --config webpack.prod.config.js --progress --profile --color"
+    "build": "rimraf dist && webpack --config webpack.prod.config.js --progress --profile --color"
   },
   "devDependencies": {
     "autoprefixer": "^8.0.0",
@@ -29,6 +28,7 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2"

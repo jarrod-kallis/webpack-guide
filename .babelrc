@@ -10,7 +10,9 @@
             "> 1%",
             "last 2 versions"
           ]
-        }
+        },
+        // Something to do with supporting older browsers through 'babel-polyfill'
+        "useBuiltIns": "entry"
       }
     ],
     // stage-2: contains syntax that is in draft stage and hasn't been incorporated main stream yet

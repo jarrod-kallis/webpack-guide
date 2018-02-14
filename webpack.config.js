@@ -1,5 +1,6 @@
 const path = require('path');
 const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -65,5 +66,13 @@ module.exports = {
         loader: 'url-loader?limit=8000&name=images/[name].[ext]'
       }
     ]
-  }
+  },
+  plugins: [
+    // Plugin to dynamically inject 'bundle.js' link into the index.html file
+    new HtmlWebpackPlugin({
+      template: __dirname + '/src/index.html',
+      filename: 'index.html',
+      inject: 'body'
+    })
+  ]
 };

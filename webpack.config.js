@@ -1,4 +1,5 @@
 const path = require('path');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -18,6 +19,40 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        // NB! Webpack parses loaders in the 'use' array from bottom to top
+        use: [
+          // style-loader: Injects the CSS from the individual CSS files
+          // into the top of our html page so that there are less files to download in PROD
+          { loader: 'style-loader' },
+          // css-loader: Understands "import './*.css'"
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1, // Tell 'css-loader' how many other loaders we need to run before it needs to run
+              modules: true, // Enable CSS modules
+              // [name]: name of the class we define in the CSS file eg. .PizzaImage
+              // [local]: component's name eg. PizzaImage
+              // [hash...]: random number to make the class namer really unique
+              localIdentName: '[name]__[local]__[hash:base64:5]'
+            }
+          },
+          // postcss-loader: use this to apply auto prefixing to some css properties
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [
+                autoprefixer({
+                  browsers: ['> 1%', 'last 2 versions']
+                })
+              ]
+            }
+          }
+        ]
       }
     ]
   }

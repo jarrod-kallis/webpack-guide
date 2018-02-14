@@ -1,0 +1,18 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        // "targets" - which browsers do you want to support
+        "targets": {
+          "browsers": [
+            // We want to support browsers which have greater than 1% market share OR the last 2 versions of any browser
+            "> 1%",
+            "last 2 versions"
+          ]
+        }
+      }
+    ],
+    "react"
+  ]
+}

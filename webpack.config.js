@@ -8,6 +8,9 @@ module.exports = {
     // path.resolve generates an absolute path
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    // Code splitting or lazy loading set up:
+    // 'id' is a generated number by webpack.
+    chunkFilename: '[id].js',
     publicPath: ''
   },
   resolve: {

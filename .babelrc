@@ -14,5 +14,9 @@
       }
     ],
     "react"
+  ],
+  "plugins": [
+    // Allows babel to understand lazy loading of components
+    "syntax-dynamic-import"
   ]
 }

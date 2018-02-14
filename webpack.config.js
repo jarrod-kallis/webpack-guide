@@ -53,6 +53,13 @@ module.exports = {
             }
           }
         ]
+      },
+      // 'url-loader': Will convert any images, smaller than the limit specified, to base64 and inline them
+      // so we don't have to download a separate image file.
+      // Files above the limit will just be copied to the output folder eg. dist/image/<name>
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        loader: 'url-loader?limit=8000&name=images/[name].[ext]'
       }
     ]
   }

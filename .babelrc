@@ -13,6 +13,9 @@
         }
       }
     ],
+    // stage-2: contains syntax that is in draft stage and hasn't been incorporated main stream yet
+    // eg. Property assigning syntax: state = {}
+    "stage-2",
     "react"
   ],
   "plugins": [
